@@ -1,0 +1,115 @@
+
+.customrepeater {
+
+}
+.customrepeater .customset {
+    display: block;
+}
+
+.customrepeater .customset ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.customrepeater .customset ul li {
+    min-height: 30px;
+    margin: 0 0 1em 1em !important;
+    padding: 1.5em 1.25em 0 1.25em !important;
+    position: relative;
+    border: 1px solid #cfd7e1;
+    border-radius: 4px;
+    background-color: #f5f5f5;
+    box-shadow: none;
+}
+.customrepeater .customset ul li:before {
+    top: -2px;
+    left: -18px;
+    color: #bdc3c7;
+    content: "\f111";
+    position: absolute;
+    font-size: 8px;
+    font-style: normal;
+    font-weight: normal;
+    font-family: FontAwesome;
+    text-decoration: inherit;
+    -webkit-font-smoothing: antialiased;
+}
+.customrepeater .customset ul li.item-new:before {
+    color: #6BC48D;
+    content: "\f005";
+    font-size: 10px;
+}
+.customrepeater .customset ul li [data-customrepeater-action="remove"] {
+    top: 4px;
+    right: 5px;
+    width: 20px;
+    height: 20px;
+    z-index: 90;
+    position: absolute;
+    text-align: center;
+}
+.customrepeater .customset ul li [data-customrepeater-action="remove"] span {
+    cursor: pointer;
+    color: #000;
+    padding: 0;
+    opacity: .2;
+    display: inline-block;
+    font-size: 21px;
+    font-weight: 700;
+    line-height: 1;
+    text-shadow: 0 1px 0 #fff;
+    font-family: sans-serif;
+    border: 0;
+    background: 0 0;
+    -webkit-appearance: none;
+}
+.customrepeater .customset ul li [data-customrepeater-action="remove"]:hover span {
+    opacity: .5;
+    text-decoration: none;
+}
+.customrepeater .customset ul li .list-fields:after {
+    clear: both;
+    content: "";
+    display: table;
+}
+
+.customrepeater .customset .customset-add {
+    margin-top: 10px;
+    margin-left: 20px;
+    position: relative;
+    border: 2px dotted #e0e0e0;
+    border-radius: 5px;
+}
+.customrepeater .customset .customset-add:hover {
+    background-color: #8284f8;
+    border-color: transparent;
+}
+.customrepeater .customset .customset-add:before {
+    color: #bdc3c7;
+    top: -11px;
+    left: -23px;
+    content: "\f067";
+    position: absolute;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: normal;
+    font-family: FontAwesome;
+    text-decoration: inherit;
+    -webkit-font-smoothing: antialiased;
+}
+.customrepeater .customset .customset-add:hover:before {
+    color: #999;
+}
+.customrepeater .customset .customset-add a {
+    color: #bdc3c7;
+    padding: 13px 15px;
+    display: block;
+    font-size: 12px;
+    text-align: center;
+    font-weight: 600;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+.customrepeater .customset .customset-add:hover a {
+    color: #fff;
+}

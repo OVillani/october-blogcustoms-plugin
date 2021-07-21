@@ -1,0 +1,28 @@
+{
+    "name": "synder/blogcustoms-plugin",
+    "type": "october-plugin",
+    "description": "Simple custom datasets for the RainLab.Blog extension.",
+    "homepage": "https://octobercms.com/plugin/synder-blogcustoms",
+    "keywords": [
+        "october", 
+        "october-plugin", 
+        "custom-fields",
+        "custom-data",
+        "custom",
+        "blog-extension",
+        "synder"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Synder",
+            "email": "october@synder.dev",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=7.4",
+        "composer/installers": "~1.0",
+        "rainlab/blog-plugin": "~1.2.0"
+    }
+}

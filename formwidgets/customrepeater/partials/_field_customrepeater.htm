@@ -1,0 +1,72 @@
+<div class="customrepeater" data-control="synder-customrepeater">
+    <div class="customset">
+        <ul class="data-list">
+
+            <?php if ($customs): ?>
+                <?php foreach($customs AS $custom): ?>
+                    <li class="list-item">
+                        <a href="#" data-customrepeater-action="remove"><span aria-hidden="true">×</span></a>
+
+                        <div class="list-fields">
+                            <div class="form-group text-field span-row col-xs-3" data-field="key">
+                                <input type="text" name="Post[customs][<?= $custom->id; ?>][name]" value="<?= $custom->name; ?>" 
+                                    placeholder="<?= e(trans('synder.blogcustoms::lang.formwidget.name')) ?>" class="form-control" autocomplete="off" maxlength="255" />
+                            </div>
+
+                            <div class="form-group text-field span-row col-xs-2" data-field="type">
+                                <select name="Post[customs][<?= $custom->id; ?>][type]" class="form-control custom-select select-no-search">
+                                    <option value="text"><?= e(trans('synder.blogcustoms::lang.formwidget.types.text')) ?></option>
+                                    <option value="number"><?= e(trans('synder.blogcustoms::lang.formwidget.types.number')) ?></option>
+                                    <option value="array"><?= e(trans('synder.blogcustoms::lang.formwidget.types.array')) ?></option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group text-field span-row col-xs-7" data-field="value">
+                                <input type="text" name="Post[customs][<?= $custom->id; ?>][value]" value="<?= $custom->value; ?>" 
+                                    placeholder="<?= e(trans('synder.blogcustoms::lang.formwidget.value')) ?>" class="form-control" autocomplete="off" />
+                            </div>
+                        </div>
+                    </li>
+                <?php endforeach ?>
+            <?php endif ?>
+
+        </ul>
+
+        <div class="customset-add">
+            <a href="#" data-customrepeater-action="add"><?= e(trans($prompt)) ?></a>
+        </div>
+    </div>
+    <br />
+
+    <ul class="help-block">
+        <li><?= e(trans('synder.blogcustoms::lang.formwidget.help_names')) ?></li>
+        <li><?= e(trans('synder.blogcustoms::lang.formwidget.help_array_type')) ?></li>
+    </ul>
+    
+    <template data-customrepeater-template>
+        <li class="list-item">
+            <a href="#" data-customrepeater-action="remove"><span aria-hidden="true">×</span></a>
+
+            <div class="list-fields">
+                <div class="form-group text-field span-row col-xs-3" data-field="key">
+                    <input type="text" name="Post[customs][_id][name]" value="" 
+                        placeholder="<?= e(trans('synder.blogcustoms::lang.formwidget.name')) ?>" class="form-control" autocomplete="off" maxlength="255" />
+                </div>
+
+                <div class="form-group text-field span-row col-xs-2" data-field="type">
+                    <select name="Post[customs][_id][type]" class="form-control custom-select select-no-search">
+                        <option value="text"><?= e(trans('synder.blogcustoms::lang.formwidget.types.text')) ?></option>
+                        <option value="integer"><?= e(trans('synder.blogcustoms::lang.formwidget.types.integer')) ?></option>
+                        <option value="float"><?= e(trans('synder.blogcustoms::lang.formwidget.types.float')) ?></option>
+                        <option value="array"><?= e(trans('synder.blogcustoms::lang.formwidget.types.array')) ?></option>
+                    </select>
+                </div>
+                
+                <div class="form-group text-field span-row col-xs-7" data-field="value">
+                    <input type="text" name="Post[customs][_id][value]" value="" 
+                        placeholder="<?= e(trans('synder.blogcustoms::lang.formwidget.value')) ?>" class="form-control" autocomplete="off" />
+                </div>
+            </div>
+        </li>
+    </template>
+</div>
