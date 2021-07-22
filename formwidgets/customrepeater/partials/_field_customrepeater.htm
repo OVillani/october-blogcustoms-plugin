@@ -15,9 +15,9 @@
 
                             <div class="form-group text-field span-row col-xs-2" data-field="type">
                                 <select name="Post[customs][<?= $custom->id; ?>][type]" class="form-control custom-select select-no-search">
-                                    <option value="text"><?= e(trans('synder.blogcustoms::lang.formwidget.types.text')) ?></option>
-                                    <option value="number"><?= e(trans('synder.blogcustoms::lang.formwidget.types.number')) ?></option>
-                                    <option value="array"><?= e(trans('synder.blogcustoms::lang.formwidget.types.array')) ?></option>
+                                    <option value="text"<?= $custom->type == 'text'? ' selected="selected"': '' ?>><?= e(trans('synder.blogcustoms::lang.formwidget.types.text')) ?></option>
+                                    <option value="number"<?= $custom->type == 'number'? ' selected="selected"': '' ?>><?= e(trans('synder.blogcustoms::lang.formwidget.types.number')) ?></option>
+                                    <option value="array"<?= $custom->type == 'array'? ' selected="selected"': '' ?>><?= e(trans('synder.blogcustoms::lang.formwidget.types.array')) ?></option>
                                 </select>
                             </div>
                             
