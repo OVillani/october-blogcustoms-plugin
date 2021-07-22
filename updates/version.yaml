@@ -6,3 +6,5 @@
     - Bugfix Newly created datasets could not be updated.
     - Bugfix Repeater Types aren't selected.
     - Bugfix CustomData is removed, when Post model is stored elsewhere.
+1.0.2:
+    - Bugfix Reinitialize select2 fields.

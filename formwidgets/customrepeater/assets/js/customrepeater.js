@@ -202,6 +202,9 @@
          */
         replaceFieldList: function(content) {
             this.fieldList.innerHTML = content;
+            [].map.call(this.fieldList.querySelectorAll('select'), (selectize) => {
+                jQuery(selectize).select2({ minimumResultsForSearch: Infinity });
+            });
 
             this.newFieldCounter = 0;
             if (this.fieldList.querySelectorAll('li').length > 0) {
