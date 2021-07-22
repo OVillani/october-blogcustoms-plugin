@@ -1,0 +1,28 @@
+
+<?php if ($customs): ?>
+    <?php foreach($customs AS $custom): ?>
+        <li class="list-item">
+            <a href="#" data-customrepeater-action="remove"><span aria-hidden="true">×</span></a>
+
+            <div class="list-fields">
+                <div class="form-group text-field span-row col-xs-3" data-field="key">
+                    <input type="text" name="Post[customs][<?= $custom->id; ?>][name]" value="<?= $custom->name; ?>" 
+                        placeholder="<?= e(trans('synder.blogcustoms::lang.formwidget.name')) ?>" class="form-control" autocomplete="off" maxlength="255" />
+                </div>
+
+                <div class="form-group text-field span-row col-xs-2" data-field="type">
+                    <select name="Post[customs][<?= $custom->id; ?>][type]" class="form-control custom-select select-no-search">
+                        <option value="text"<?= $custom->type == 'text'? ' selected="selected"': '' ?>><?= e(trans('synder.blogcustoms::lang.formwidget.types.text')) ?></option>
+                        <option value="number"<?= $custom->type == 'number'? ' selected="selected"': '' ?>><?= e(trans('synder.blogcustoms::lang.formwidget.types.number')) ?></option>
+                        <option value="array"<?= $custom->type == 'array'? ' selected="selected"': '' ?>><?= e(trans('synder.blogcustoms::lang.formwidget.types.array')) ?></option>
+                    </select>
+                </div>
+                
+                <div class="form-group text-field span-row col-xs-7" data-field="value">
+                    <input type="text" name="Post[customs][<?= $custom->id; ?>][value]" value="<?= $custom->value; ?>" 
+                        placeholder="<?= e(trans('synder.blogcustoms::lang.formwidget.value')) ?>" class="form-control" autocomplete="off" />
+                </div>
+            </div>
+        </li>
+    <?php endforeach ?>
+<?php endif ?>

@@ -1,3 +1,8 @@
 1.0.0:
     - First Version.
     - create_customs_table.php
+1.0.1:
+    - Add AJAX handler to update (new) custom datasets.
+    - Bugfix Newly created datasets could not be updated.
+    - Bugfix Repeater Types aren't selected.
+    - Bugfix CustomData is removed, when Post model is stored elsewhere.

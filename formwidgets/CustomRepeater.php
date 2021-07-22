@@ -41,10 +41,22 @@ class CustomRepeater extends FormWidgetBase
      */
     public function render()
     {
-
         $this->vars['prompt'] = $this->prompt;
         $this->vars['customs'] = $this->model->rawCustoms;
 
         return $this->makePartial('field_customrepeater');
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function onRefresh()
+    {
+        $this->vars['prompt'] = $this->prompt;
+        $this->vars['customs'] = $this->model->rawCustoms;
+
+        return [
+            'customrepeater' => $this->makePartial('field_customrepeater_list')
+        ];
     }
 }

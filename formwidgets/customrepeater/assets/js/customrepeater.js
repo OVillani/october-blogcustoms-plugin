@@ -57,6 +57,7 @@
          * @returns {void}
          */
         init: function() {
+            this.newFieldCounter = 0;
             if (this.fieldList.querySelectorAll('li').length > 0) {
                 this.fieldSets = [].map.call(this.fieldList.querySelectorAll('li'), (fieldset) => {
                     this.attachFieldSet(fieldset);
@@ -194,12 +195,38 @@
                 this.fieldSets.splice(index, 1);
             }
             this.fieldList.removeChild(fieldset);
+        },
+
+        /**
+         * Replace Field List
+         */
+        replaceFieldList: function(content) {
+            this.fieldList.innerHTML = content;
+
+            this.newFieldCounter = 0;
+            if (this.fieldList.querySelectorAll('li').length > 0) {
+                this.fieldSets = [].map.call(this.fieldList.querySelectorAll('li'), (fieldset) => {
+                    this.attachFieldSet(fieldset);
+                    return fieldset;
+                });
+            }
         }
     };
 
     // Initialize
-    let repeaters = document.querySelectorAll('[data-control="synder-customrepeater"]');
-    [].map.call(repeaters, (repeater) => {
-        new CustomRepeater(repeater);
+    let repeaterField = document.querySelector('[data-control="synder-customrepeater"]');
+    let repeaterInstance = new CustomRepeater(repeaterField);
+
+    // On Update
+    $('form#post-form').on('ajaxComplete', function(ajax, request) {
+        if (request.handler !== 'onSave') {
+            return;
+        }
+
+        $.request('formCustoms::onRefresh', {
+            success: function(data) {
+                repeaterInstance.replaceFieldList(data.customrepeater);
+            }
+        });
     });
 }));

@@ -76,13 +76,19 @@ class Plugin extends PluginBase
 
         // Collect Customs Post and Process
         $model->bindEvent('model.beforeSave', function() use ($model) {
-            unset($model->attributes['customs']);
+            if ((post('Post')['customdata'] ?? 'no') === 'yes') {
+                unset($model->attributes['customs']);
+            }
         });
         $model->bindEvent('model.afterSave', function() use ($model) {
-            Custom::storeFromArray(post('Post')['customs'] ?? [], $model);
+            if ((post('Post')['customdata'] ?? 'no') === 'yes') {
+                Custom::storeFromArray(post('Post')['customs'] ?? [], $model);
+            }
         });
         $model->bindEvent('model.afterDelete', function() use ($model) {
-            Custom::where('post_id', $model->id)->delete();
+            if ((post('Post')['customdata'] ?? 'no') === 'yes') {
+                Custom::where('post_id', $model->id)->delete();
+            }
         });
 
         // Pass Customs to Model
