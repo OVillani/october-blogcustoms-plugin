@@ -9,7 +9,7 @@ Features
 --------
 
 -   Create as many custom datasets as you need / post.
--   Declare the custom value type ('text', 'integer', 'float' or 'array').
+-   Declare the custom value type ('text', 'number' or 'array').
 -   Use and Output all your custom datasets natively in your theme.
 -   Own FormWidget to handle custom datasets, which just looks like the repeater widget.
 
