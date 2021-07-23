@@ -8,3 +8,5 @@
     - Bugfix CustomData is removed, when Post model is stored elsewhere.
 1.0.2:
     - Bugfix Reinitialize select2 fields.
+1.0.3:
+    - Bugfix Composer.json version constraint
