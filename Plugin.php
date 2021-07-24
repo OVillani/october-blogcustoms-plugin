@@ -30,7 +30,7 @@ class Plugin extends PluginBase
     {
         return [
             'name'        => 'synder.blogcustoms::lang.plugin.name',
-            'description' => 'synder.blogcustoms::lang.plugin.name',
+            'description' => 'synder.blogcustoms::lang.plugin.description',
             'author'      => 'Synder <october@synder.dev>',
             'homepage'    => 'https://octobercms.com/plugin/synder-blogcustoms'
         ];

@@ -9,4 +9,6 @@
 1.0.2:
     - Bugfix Reinitialize select2 fields.
 1.0.3:
-    - Bugfix Composer.json version constraint
+    - Bugfix Composer.json version constraint.
+1.0.4:
+    - Support for PHP 8.0 and updated plugin details.
