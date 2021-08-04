@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace Synder\BlogCustoms;
 
@@ -16,7 +16,7 @@ class Plugin extends PluginBase
 {
     /**
      * Plugin dependencies
-     * 
+     *
      * @var array
      */
     public $require = ['RainLab.Blog'];
@@ -56,7 +56,7 @@ class Plugin extends PluginBase
     public function boot()
     {
         Post::extend(fn($model) => $this->extendPostModel($model));
-        Posts::extendFormFields(fn($form, $model, $context) => $this->extendPostController($form, $model, $context));
+        Posts::extendFormFields(fn(...$vars) => $this->extendPostController(...$vars));
     }
 
     /**

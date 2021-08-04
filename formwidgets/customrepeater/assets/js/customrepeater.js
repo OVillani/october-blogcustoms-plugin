@@ -9,7 +9,7 @@
 
     /**
      * Constructor
-     * @param {HTMLElement} repeater 
+     * @param {HTMLElement} repeater
      */
     function CustomRepeater(repeater) {
         let template = document.querySelector('[data-customrepeater-template]');
@@ -31,12 +31,12 @@
          *  Core - Repeater Element
          */
         repeater: null,
-        
+
         /**
          *  Core - Field List
          */
         fieldList: null,
-         
+
         /**
          *  Core - Field Set Template
          */
@@ -51,7 +51,7 @@
          * New Field Counter
          */
         newFieldCounter: 0,
-        
+
         /**
          * Initialize Repeater Field
          * @returns {void}
@@ -87,7 +87,7 @@
 
         /**
          * Attach Field Set Validation & Sanitization
-         * @param {void} fieldset 
+         * @param {void} fieldset
          */
         attachFieldSet: function(fieldset) {
             [].map.call(fieldset.querySelectorAll('input, select'), (field) => {
@@ -108,7 +108,7 @@
         },
 
         /**
-         * Field Validation 
+         * Field Validation
          * @returns {boolean}
          */
         validateField: function(fieldset) {
@@ -134,7 +134,7 @@
 
         /**
          * Validate Key Field
-         * @returns 
+         * @returns
          */
         validateKeyField: function(field, event) {
             let value = field.value;
@@ -221,14 +221,18 @@
     let repeaterInstance = new CustomRepeater(repeaterField);
 
     // On Update
-    $('form#post-form').on('ajaxComplete', function(ajax, request) {
+    $('form#post-form').on('ajaxSuccess', function(ajax, request) {
         if (request.handler !== 'onSave') {
             return;
         }
 
         $.request('formCustoms::onRefresh', {
             success: function(data) {
+                console.log(data);
                 repeaterInstance.replaceFieldList(data.customrepeater);
+            },
+            error: function(data) {
+                console.log(data.customrepeater);
             }
         });
     });
