@@ -1,8 +1,13 @@
 Custom DataSets for RainLab.Blog (OctoberCMS)
 =============================================
 
-Synder.BlogCustoms is a simple solution to add custom datasets to the single 
-post items of the RainLab.Blog OctoberCMS plugin.
+![PHP Version](https://img.shields.io/badge/PHP-7.4%2B-4f5b93?style=flat-square)
+![October Version](https://img.shields.io/badge/OctoberCMS-2.0%2B-DB6A26?style=flat-square)
+![Plugin Version](https://img.shields.io/github/v/release/SynderDEV/october-blogcustoms-plugin?style=flat-square&label=Version)
+![Plugin License](https://img.shields.io/github/license/SynderDEV/october-blogcustoms-plugin?style=flat-square&label=License)
+
+**Synder.BlogCustoms** is a simple solution to add custom datasets to the single post items of the 
+RainLab.Blog OctoberCMS plugin.
 
 
 Features
