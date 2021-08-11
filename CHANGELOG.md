@@ -4,6 +4,7 @@ Changelog
 Version 1.1.0
 -------------
 -   Update: New Symfony YAML rule, using string keys on version.yaml file.
+-   Update: Change column `type` from ENUM into VARCHAR.
 -   Bugfix: Custom Data is lost, when the post could not be created or updated.
 
 ### Work In Progress

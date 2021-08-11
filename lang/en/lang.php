@@ -26,5 +26,15 @@ return [
         'value' => 'Data Value',
         'help_names' => 'Custom Data-Names MUST consist of alphanumeric and underscore characters only and CANNOT start with a number.',
         'help_array_type' => 'Custom Data-Type "Array" uses a comma to split the single items.'
+    ],
+
+    'admin' => [
+        'list' => [
+            'toolbar_create' => 'Create Default',
+            'toolbar_search_prompt' => 'Search Custom',
+            'custom_name' => 'Custom Name',
+            'custom_type' => 'Custom Type',
+            'posts_count' => 'Posts Count'
+        ]
     ]
 ];

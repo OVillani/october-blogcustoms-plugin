@@ -2,6 +2,9 @@
 
 namespace Synder\BlogCustoms;
 
+use Backend;
+use Event;
+use Backend\Classes\NavigationManager;
 use Backend\Widgets\Form;
 use October\Rain\Database\Model;
 use RainLab\Blog\Controllers\Posts;
@@ -145,5 +148,25 @@ class Plugin extends PluginBase
                 'tab' => 'synder.blogcustoms::lang.fields.tab'
             ]
         ]);
+    }
+
+    /**
+     * Register Plugin Navigation
+     *
+     * @return void
+     */
+    public function registerNavigation(): void
+    {
+        Event::listen('backend.menu.extendItems', function (NavigationManager $manager) {
+            $manager->addSideMenuItems('RainLab.Blog', 'blog', [
+                'customs' => [
+                    'label' => 'Custom Fields',
+                    'icon'  => 'icon-cubes',
+                    'code'  => 'synder-blogcustoms',
+                    'owner' => 'RainLab.Blog',
+                    'url'   => Backend::url('synder/blogcustoms/customs')
+                ]
+            ]);
+        });
     }
 }

@@ -1,0 +1,13 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+  post_id:
+    type: text
+  name:
+    type: text
+  type:
+    type: text
+  value:
+    type: text

@@ -1,19 +1,22 @@
 v1.0.0:
-    - First Version.
+    - "First Version."
     - create_customs_table.php
 v1.0.1:
-    - 'Version 1.0.1 - Small Update (See CHANGELOG.md for details)'
-    - 'Add: AJAX Handler to update (new) custom datasets.'
-    - 'Bugfix: Newly created datasets could not be updated.'
-    - 'Bugfix: Repeater types aren't selected.'
-    - 'Bugfix: CustomData is removed, when Post model is stored elsewhere.'
+    - "Version 1.0.1 - Small Update (See CHANGELOG.md for details)"
+    - "Add: AJAX Handler to update (new) custom datasets."
+    - "Bugfix: Newly created datasets could not be updated."
+    - "Bugfix: Repeater types aren't selected."
+    - "Bugfix: CustomData is removed, when Post model is stored elsewhere."
 v1.0.2:
-    - 'Version 1.0.1 - Hotfix (See CHANGELOG.md for details)'
-    - 'Bugfix: Re-Initialize select2 field scripts.'
+    - "Version 1.0.1 - Hotfix (See CHANGELOG.md for details)"
+    - "Bugfix: Re-Initialize select2 field scripts."
 v1.0.3:
-    - 'Version 1.0.1 - Hotfix (See CHANGELOG.md for details)'
-    - 'Bugfix: Composer.json version constraint.'
+    - "Version 1.0.1 - Hotfix (See CHANGELOG.md for details)"
+    - "Bugfix: Composer.json version constraint."
 v1.0.4:
-    - 'Version 1.0.4 - Small Update (See CHANGELOG.md for details)'
-    - 'Add: Support for PHP 8.0.'
-    - 'Update: Plugin details.'
+    - "Version 1.0.4 - Small Update (See CHANGELOG.md for details)"
+    - "Add: Support for PHP 8.0."
+    - "Update: Plugin details."
+v1.1.0:
+    - "Version 1.1.0 - Update (See CHANGELOG.md for details)"
+    - update_customs_table_v110.php

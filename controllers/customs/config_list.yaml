@@ -1,0 +1,13 @@
+
+list: $/synder/blogcustoms/models/custom/columns.yaml
+modelClass: Synder\BlogCustoms\Models\Custom
+title: List
+recordUrl: synder/blogcustoms/customs/update/:name
+noRecordsMessage: No Record
+recordsPerPage: 20
+showSorting: true
+toolbar:
+  buttons: list_toolbar
+  search:
+    prompt: synder.blogcustoms::lang.admin.list.toolbar_search_prompt
+    mode: exact

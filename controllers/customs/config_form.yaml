@@ -1,0 +1,17 @@
+
+
+
+name: 'Custom Fields'
+form: $synder/blogcustoms/models/custom/fields.yaml
+modelClass: Synder\BlogCustoms\Models\Custom
+defaultRedirect: synder/blogcustoms/customs
+
+create:
+  title: Create new Custom
+  redirect: synder/blogcustoms/customs/update/:id
+  redirectClose: synder/blogcustoms/customs
+
+update:
+  title: Update Customs
+  redirect: synder/blogcustoms/customs
+  redirectClose: synder/blogcustoms/customs
