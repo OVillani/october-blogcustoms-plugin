@@ -29,6 +29,15 @@ class Custom extends Model
             'table' => 'rainlab_blog_posts'
         ]
     ];
+    
+    /**
+     * Relations
+     *
+     * @var array
+     */
+    public $morphedByMany = [
+        'posts'  => [Post::class, 'name' => 'synder_blogcustoms'],
+    ];
 
     /**
      * Fillable fields
@@ -65,7 +74,6 @@ class Custom extends Model
             'nullable'
         ]
     ];
-
     
     /**
      * Store Custom Datasets from array
@@ -108,5 +116,15 @@ class Custom extends Model
             $custom = $customs->find($key);
             $custom->delete();
         }
+    }
+
+    /**
+     * Get Key - Used for the ListController only
+     *
+     * @return string
+     */
+    public function getKey()
+    {
+        return $this->name . '-' . $this->type;
     }
 }

@@ -30,8 +30,17 @@ return [
 
     'admin' => [
         'list' => [
-            'toolbar_create' => 'Create Default',
-            'toolbar_search_prompt' => 'Search Custom',
+            'title' => 'Manage Custom Fields',
+            'title_menu' => 'Customs',
+            'empty' => 'No Custom Fields yet',
+            'toolbar_create' => 'Create New',
+            'list_by_customs' => 'List by Customs',
+            'list_by_posts' => 'List by Posts',
+            'edit_selected' => 'Edit Customs',
+            'delete_selected' => 'Delete Customs',
+            'delete_confirm' => 'Are you sure you want to delete all selected custom fields? This step cannot be undone.',
+            'delete_confirm_posts' => 'Are you sure you want to delete all custom fields from the selected posts? This step cannot be undone.',
+            'toolbar_search_prompt' => 'Search...',
             'custom_name' => 'Custom Name',
             'custom_type' => 'Custom Type',
             'posts_count' => 'Posts Count'

@@ -1,15 +1,35 @@
 
 # Model List Column configuration
-list: $/synder/blogcustoms/models/custom/columns.yaml
+list:
+  columns:
+    post_title:
+      label: Post Title
+      type: text
+      valueFrom: title
+      displayFrom: title
+      searchable: true
+      sortable: true
+
+    published_at:
+      label: rainlab.blog::lang.post.published
+      type: date
+      sortable: true
+
+    customs_count:
+      label: Customs Count
+      valueFrom: count
+      displayFrom: count
+      sortable: false
+      searchable: false
 
 # Model Class name
-modelClass: Synder\BlogCustoms\Models\Custom
+modelClass: RainLab\Blog\Models\Post
 
 # List Title
 title: synder.blogcustoms::lang.admin.list.title
 
 # Link URL for each record
-recordUrl: synder/blogcustoms/customs/update/:name
+recordUrl: rainlab/blog/posts/update/:id#secondarytab-synderblogcustomslangfieldstab
 
 # Message to display if the list is empty
 noRecordsMessage: synder.blogcustoms::lang.admin.list.empty
@@ -23,6 +43,11 @@ showCheckboxes: true
 # Displays the sorting link on each column
 showSorting: true
 
+# Default sorting column
+defaultSort:
+  column: published_at
+  direction: desc
+    
 # Toolbar widget configuration
 toolbar:
   # Partial for toolbar buttons

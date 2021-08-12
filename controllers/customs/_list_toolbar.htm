@@ -2,4 +2,41 @@
     <a href="<?= Backend::url('synder/blogcustoms/customs/create') ?>" class="btn btn-primary oc-icon-plus">
         <?= e(trans('synder.blogcustoms::lang.admin.list.toolbar_create')) ?>
     </a>
+
+    <button
+        class="btn btn-default oc-icon-pencil"
+        disabled="disabled"
+        data-trigger-action="enable"
+        data-trigger=".control-list input[type=checkbox]"
+        data-trigger-condition="checked"
+        data-stripe-load-indicator
+    >
+        <?= e(trans('synder.blogcustoms::lang.admin.list.edit_selected')) ?>
+    </button>
+
+    <button
+        class="btn btn-default oc-icon-pencil"
+        disabled="disabled"
+        onclick="$(this).data('request-data', {
+            checked: $('.control-list').listWidget('getChecked')
+        })"
+        data-request="onBulkDelete"
+        data-request-confirm="<?= e(trans('synder.blogcustoms::lang.admin.list.delete_confirm' . ($list_type === 'posts'? '_posts': ''))) ?>"
+        data-trigger-action="enable"
+        data-trigger=".control-list input[type=checkbox]"
+        data-trigger-condition="checked"
+        data-request-success="$el.prop('disabled', false)"
+        data-stripe-load-indicator
+    >
+        <?= e(trans('synder.blogcustoms::lang.admin.list.delete_selected')) ?>
+    </button>
+
+    <div class="btn-group">
+        <a href="<?= Backend::url('synder/blogcustoms/customs?list=customs') ?>" class="btn btn-default oc-icon-cubes<?= e($list_type === 'posts'? '': ' disabled') ?>">
+            <?= e(trans('synder.blogcustoms::lang.admin.list.list_by_customs')) ?>
+        </a>
+        <a href="<?= Backend::url('synder/blogcustoms/customs?list=posts') ?>" class="btn btn-default oc-icon-files-o<?= e($list_type === 'customs'? '': ' disabled') ?>">
+            <?= e(trans('synder.blogcustoms::lang.admin.list.list_by_posts')) ?>
+        </a>
+    </div>
 </div>

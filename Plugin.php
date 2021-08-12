@@ -160,7 +160,7 @@ class Plugin extends PluginBase
         Event::listen('backend.menu.extendItems', function (NavigationManager $manager) {
             $manager->addSideMenuItems('RainLab.Blog', 'blog', [
                 'customs' => [
-                    'label' => 'Custom Fields',
+                    'label' => 'synder.blogcustoms::lang.admin.list.title_menu',
                     'icon'  => 'icon-cubes',
                     'code'  => 'synder-blogcustoms',
                     'owner' => 'RainLab.Blog',
