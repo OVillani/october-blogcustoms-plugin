@@ -97,8 +97,7 @@ class Custom extends Model
                 }
             }
 
-            if ($key !== null) {
-                $custom = $customs->find($key);
+            if ($key !== null && ($custom = $customs->find($key)) !== null) {
                 unset($customindex[$key]);
             } else {
                 $custom = new static();
@@ -119,12 +118,15 @@ class Custom extends Model
     }
 
     /**
-     * Get Key - Used for the ListController only
+     * Get Key - Return special key for the ListController
      *
      * @return string
      */
     public function getKey()
     {
-        return $this->name . '-' . $this->type;
+        if (isset($this->attributes['list_key'])) {
+            return $this->attributes['list_key'];
+        }
+        return $this->id;
     }
 }

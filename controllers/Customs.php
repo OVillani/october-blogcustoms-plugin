@@ -2,12 +2,15 @@
 
 namespace Synder\BlogCustoms\Controllers;
 
+use Flash;
 use Backend\Behaviors\FormController;
 use Backend\Behaviors\ListController;
 use Backend\Behaviors\RelationController;
 use Backend\Classes\Controller;
 use Backend\Facades\BackendMenu;
 use October\Rain\Database\Builder;
+
+use Synder\BlogCustoms\Models\Custom;
 
 
 class Customs extends Controller
@@ -19,8 +22,7 @@ class Customs extends Controller
      */
     public $implement = [
         FormController::class,
-        ListController::class,
-        RelationController::class
+        ListController::class
     ];
 
     /**
@@ -36,13 +38,6 @@ class Customs extends Controller
      * @var string
      */
     public $listConfig = 'config_list.yaml';
-
-    /**
-     * Relation Behaviour
-     *
-     * @var string
-     */
-    public $relationConfig = 'config_relation.yaml';
 
     /**
      * Required Permissions
@@ -74,6 +69,7 @@ class Customs extends Controller
      */
     public function beforeDisplay()
     {
+
     }
 
     /**
@@ -89,16 +85,66 @@ class Customs extends Controller
     }
 
     /**
+     * Edit multiple Customs or Posts (Create URL for List selection)
+     *
+     * @return mixed
+     */
+    public function onBulkEdit()
+    {
+        if (request()->get('list', 'customs') === 'customs') {
+            $customs = post('checked', []);
+
+        } else {
+            $posts = post('checked', []);
+
+            return redirect('test');
+        }
+    }
+
+    /**
      * Remove multiple Customs
      *
      * @return mixed
      */
     public function onBulkDelete()
     {
-        if (request()->get('list', 'customs')) {
-            //dd(post('checked'));  [name]-[type]
+        if (request()->get('list', 'customs') === 'customs') {
+            $customs = post('checked', []);
+            if (!is_array($customs)) {
+                Flash::error(e(trans('synder.blogcustoms::lang.admin.errors.invalid_args')));
+                return;
+            }
+
+            // Validate All before Process
+            $stacks = [];
+            foreach ($customs AS $custom) {
+                [$name, $type] = array_map('trim', explode('-', $custom));
+                if (empty($name) || empty($type)) {
+                    Flash::error(e(trans('synder.blogcustoms::lang.admin.errors.invalid_args')));
+                    return;
+                }
+                $stacks[] = ['name' => $name, 'type' => $type];
+            }
+
+            // Process
+            foreach ($stacks AS $stack) {
+                Custom::where('name', '=', $stack['name'])->where('type', '=', $stack['type'])->delete();
+            }
+            Flash::success(e(trans('synder.blogcustoms::lang.admin.success.bulk_delete_customs')));
+            return $this->listRefresh();
         } else {
-            //dd(post('checked'));  [post_id]
+            $posts = post('checked', []);
+            if (!is_array($posts)) {
+                Flash::error(e(trans('synder.blogcustoms::lang.admin.errors.invalid_args')));
+                return;
+            }
+
+            // Process
+            foreach ($posts AS $post) {
+                Custom::where('post_id', '=', intval($post))->delete();
+            }
+            Flash::success(e(trans('synder.blogcustoms::lang.admin.success.bulk_delete_posts')));
+            return $this->listRefresh();
         }
     }
 
@@ -116,7 +162,7 @@ class Customs extends Controller
         if (request()->get('list', 'customs') !== 'posts') {
             $query->getQuery()->selects = [];
             $query->select('synder_blogcustoms.name as name', 'synder_blogcustoms.type as type');
-            $query->selectRaw('COUNT(synder_blogcustoms.id) AS count');
+            $query->selectRaw('COUNT(synder_blogcustoms.id) AS count, CONCAT_WS("-", synder_blogcustoms.name, synder_blogcustoms.type) as list_key');
             $query->groupBy('synder_blogcustoms.name', 'synder_blogcustoms.type');
             $query->limit(25);
             $query->offset($offset);

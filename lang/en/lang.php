@@ -44,6 +44,13 @@ return [
             'custom_name' => 'Custom Name',
             'custom_type' => 'Custom Type',
             'posts_count' => 'Posts Count'
+        ],
+        'errors' => [
+            'invalid_args' => 'The passed parameters are invalid.'
+        ],
+        'success' => [
+            'bulk_delete_customs' => 'All selected custom fields have been deleted successfully.',
+            'bulk_delete_posts' => 'All custom fields of all selected posts have been deleted successfully.'
         ]
     ]
 ];
