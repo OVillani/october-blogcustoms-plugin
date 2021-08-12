@@ -1,19 +1,19 @@
 
 columns:
-    name:
-      label: synder.blogcustoms::lang.admin.list.custom_name
-      type: text
-      select: synder_blogcustoms.name
-      valueFrom: name
-      displayFrom: name
-      searchable: true
-    type:
-      label: synder.blogcustoms::lang.admin.list.custom_type
-      type: text
-      valueFrom: type
-      displayFrom: type
-    count:
-      label: synder.blogcustoms::lang.admin.list.posts_count
-      type: text
-      valueFrom: count
-      displayFrom: count
+  name:
+    label: synder.blogcustoms::lang.admin.list.custom_name
+    type: text
+    select: synder_blogcustoms.name
+    valueFrom: name
+    displayFrom: name
+    searchable: true
+  type:
+    label: synder.blogcustoms::lang.admin.list.custom_type
+    type: text
+    valueFrom: type
+    displayFrom: type
+  count:
+    label: synder.blogcustoms::lang.admin.list.posts_count
+    type: text
+    valueFrom: count
+    displayFrom: count

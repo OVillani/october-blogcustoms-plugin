@@ -8,6 +8,7 @@ use Backend\Behaviors\ListController;
 use Backend\Behaviors\RelationController;
 use Backend\Classes\Controller;
 use Backend\Facades\BackendMenu;
+use Backend\Widgets\Lists;
 use October\Rain\Database\Builder;
 
 use Synder\BlogCustoms\Models\Custom;
@@ -22,7 +23,8 @@ class Customs extends Controller
      */
     public $implement = [
         FormController::class,
-        ListController::class
+        ListController::class,
+        RelationController::class
     ];
 
     /**
@@ -38,6 +40,13 @@ class Customs extends Controller
      * @var string
      */
     public $listConfig = 'config_list.yaml';
+
+    /**
+     * Relation Behaviour
+     *
+     * @var string
+     */
+    public $relationConfig = 'config_relation.yaml';
 
     /**
      * Required Permissions
@@ -83,6 +92,47 @@ class Customs extends Controller
 
         $this->asExtension('ListController')->index();
     }
+
+    /**
+     * Create Action
+     *
+     * @return void
+     */
+    public function create($context = null)
+    {
+        $this->initForm(new Custom);
+        $this->asExtension('FormController')->create();
+    }
+
+    /**
+     * Create on Save AJAX Handler
+     */
+    public function create_onSave($context = null)
+    {
+        $customs = post('Custom');
+
+        [$name, $type] = [$customs['name'] ?? '', $customs['type'] ?? ''];
+        if (empty($name) || empty($type)) {
+            Flash::error(e(trans('synder.blogcustoms::lang.admin.errors.invalid_args')));
+            return;
+        }
+
+        foreach ($customs['values'] AS $post_id => $value) {
+            
+        }
+    }
+
+    /**
+     * Update Action
+     *
+     * @return void
+     */
+    public function update($recordId = null)
+    {
+        $this->bodyClass = 'compact-container';
+        $this->asExtension('FormController')->update($recordId);
+    }
+
 
     /**
      * Edit multiple Customs or Posts (Create URL for List selection)

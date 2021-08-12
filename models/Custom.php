@@ -29,14 +29,28 @@ class Custom extends Model
             'table' => 'rainlab_blog_posts'
         ]
     ];
-    
+
     /**
-     * Relations
+     * Database Relations
      *
      * @var array
      */
-    public $morphedByMany = [
-        'posts'  => [Post::class, 'name' => 'synder_blogcustoms'],
+    public $belongsToMany = [
+        'posts' => [
+            Post::class,
+            'table' => 'synder_blogcustoms',
+            'key' => 'id',
+            'otherKey' => 'post_id'
+        ]
+    ];
+    
+    /**
+     * Morph to Relations
+     *
+     * @var array
+     */
+    public $morphTo = [
+        'customable' => []
     ];
 
     /**

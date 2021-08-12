@@ -72,6 +72,12 @@ class Plugin extends PluginBase
     {
         $model->addJsonable('customs');
 
+        // Add MorphMany Relation
+        $model->morphMany['customs'] = [
+            Custom::class,
+            'name' => 'customable'
+        ];
+
         // Add Dynamic Method
         $model->addDynamicMethod('customs', function() {
             return new Custom;

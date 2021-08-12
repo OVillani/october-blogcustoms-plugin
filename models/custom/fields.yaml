@@ -1,13 +1,17 @@
-# ===================================
-#  Form Field Definitions
-# ===================================
 
 fields:
-  post_id:
-    type: text
   name:
+    label: Custom Name
     type: text
+    span: row
+    spanClass: col-xs-12 col-md-4
+
   type:
+    label: Custom Type
     type: text
-  value:
-    type: text
+    span: row
+    spanClass: col-xs-12 col-md-4
+
+  posts:
+    type: partial
+    path: list_posts
